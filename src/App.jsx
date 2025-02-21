@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Search } from './components/Search'
 import { ShowContries } from './components/ShowContries'
+import { History } from './components/History'
 
 function App() {
   // Countries es la lista que almacena el resultado.
@@ -22,6 +23,8 @@ function App() {
 
       {/* element es un prop; le pasamos la lista de los resultados */}
       <ShowContries countries={countries} error={error}/>
+
+      <History countries={countries.length == 1 ? countries[0] : undefined } />
     </>
   )
 }
