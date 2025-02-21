@@ -1,6 +1,14 @@
-export const ShowContries = ({ countries }) => {
-    console.log(countries)
-    return <>
+// Obtener el error de Search y mostrar "No existe el pais"
+
+export const ShowContries = ({ countries, error }) => {
+    if(error){
+        return <>
+            <h2>Resultados</h2>
+            <h3>No se encontro el pais</h3>
+        </>
+    }
+
+    return <div>
         <h2>Resultados</h2>
         {countries.map((element, index) => {
 
@@ -12,5 +20,5 @@ export const ShowContries = ({ countries }) => {
             </div>
 
         })}
-    </>
+    </div>
 }

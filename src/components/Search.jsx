@@ -1,18 +1,24 @@
 import { useEffect, useRef, useState } from "react"
 
+// Condicionar data para obtener el error y hacer una elevacion de estado.
 
-export const Search = ({setCountries}) => {
+export const Search = ({setCountries, setError}) => {
     const [band,setBand] = useState(false)
     const inputRef = useRef()
 
     const getContries = async (name)=> {
         let response = await fetch("https://restcountries.com/v3.1/name/"+name)
         let data = await response.json()
+        if (data.status == 404) {
+            setError(true)
+            return
+        }
+        setError(false)
         setCountries(data)
     }
 
     useEffect(()=>{
-        if(band){
+        if(band && inputRef.current.value !== ""){
             getContries(inputRef.current.value)
         }
 
