@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from "react"
 
-// Condicionar data para obtener el error y hacer una elevacion de estado.
-
 export const Search = ({setCountries, setError}) => {
     const [band,setBand] = useState(false)
     const inputRef = useRef()

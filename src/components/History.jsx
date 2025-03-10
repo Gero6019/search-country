@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react"
 
-// usar el metodo slice de la lista history para seleccionar los ultimos elementos.
-// Mostrar solo 5 paises en el historial.
-// Optativo: Hacer que siempre se muestre el historial en pantalla.
-// Se resuelve con Bootstrap clase position.
-
 export const History = ({ countries })=>{
     const [history, setHistory] = useState([])
     
     useEffect(()=>{
-        if(countries){
-            setHistory([...history,countries]) // <-- Aqui se modifica
+        if(history.length <= 5){
+            setHistory([...history,countries])
+        }else{
+            setHistory([...history,countries])
+            setHistory(history.slice(1,5))
         }
     },[countries])
 

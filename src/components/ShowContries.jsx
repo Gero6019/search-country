@@ -1,5 +1,3 @@
-// Obtener el error de Search y mostrar "No existe el pais"
-
 export const ShowContries = ({ countries, error }) => {
     if(error){
         return <>
